@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Socket } from 'ng-socket-io';
 import { Observable } from 'rxjs';
 
-interface messageSocket {
+interface MessageSocket {
   gwID: string;
   nodes: [
     {nodeID: string,
@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
 
 
   getMessages() {
-    const observable = new Observable<messageSocket>(observer => {
+    const observable = new Observable<MessageSocket>(observer => {
       this.socket.on('message', (data) => {
         observer.next(data);
       });
